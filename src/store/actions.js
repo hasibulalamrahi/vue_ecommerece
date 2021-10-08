@@ -15,6 +15,13 @@ export const getProducts=({commit}) =>{
      })
  }
 
+ export const getMensClothing = ({commit}) =>{
+     axios.get('https://fakestoreapi.com/products')
+     .then(response =>{
+         commit('GET_MENS_CLOTHING',response.data)
+     })
+ }
+
  export const addProductToCart =({commit},{product,quantity}) =>{
      commit('ADD_TO_CART',{product,quantity});
  }

@@ -2,13 +2,10 @@
   <div>
     <product-offers></product-offers>
     <div>
-      <h1 class="headline"><strong>New Products</strong></h1>
+      <h1 class="headline"><strong>New Products</strong></h1> <hr>
       <div class="d-flex align-items-stretch flex-wrap">
         <product-card v-for="product in products" :key="product.id" :product="product"></product-card>
-        <!-- <product-card></product-card>
-        <product-card></product-card>
-        <product-card></product-card>
-        <product-card></product-card> -->
+        
 
       </div>
     </div>

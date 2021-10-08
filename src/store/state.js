@@ -1,5 +1,9 @@
 export default{
     products:[],
     product:null,
-    cart:[ ]
+    cart:[],
+    mensClothing:[],
+    jewellery:[],
+    electronics:[],
+    womensClothing:[]
 }

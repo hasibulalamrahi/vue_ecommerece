@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import productCategories from '../components/productCategories'
+import productCategories from '../components/categories/productCategories'
 export default {
     components:{
         'product-categories':productCategories
