@@ -5,5 +5,8 @@ export default{
     mensClothing:[],
     jewellery:[],
     electronics:[],
-    womensClothing:[]
+    womensClothing:[],
+    electronicsProducts:[],
+    jeweleryProducts :[],
+    notifications:[]
 }

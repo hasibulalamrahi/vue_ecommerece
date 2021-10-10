@@ -34,7 +34,7 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul> -->
-            <div class="dropdown-menu p-2" 
+            <div class="dropdown-menu p-2" @click="$event.stopPropagation()"
                 style="min-width:320px; right:0; left:auto" 
                 aria-labelledby="triggerId">
                 <div>
@@ -65,8 +65,12 @@
 </template>
 
 <script>
-    
+let carts = 'shopping-cart';
+
 export default {
+    created(){
+      this.$store.state.cart=  JSON.parse(localStorage.getItem(carts)|| '[]');
+    },
     computed:{
       cart(){
         return this.$store.state.cart;
@@ -81,11 +85,16 @@ export default {
     methods:{
       removeProductFromCart(product){
          this.$store.dispatch("removeProductFromCart",product);
+        //  localStorage.setItem(cart,JSON.stringify(this.$store.state.cart))
       },
       clearCartItems(){
         this.$store.dispatch("clearCartItems");
       }
-    }
+    },
+
+    // mounted(){
+    //   this.$store.dispatch('getCartItems')
+    // }
 
     
 }

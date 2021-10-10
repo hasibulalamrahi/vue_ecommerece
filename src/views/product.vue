@@ -9,21 +9,37 @@
           <h3><strong>Price:$</strong>{{product.price}}</h3>
           <input type="text" class="text-center col-1 mr-2 p-1" />
           <button class="btn btn-primary" @click="addToCart()">Add to cart</button>
-          <p class="mt-4"><h6><b>Detailed Description:</b></h6>{{product.description}}</p>
+          <h6 class="mt-4"><b>Detailed Description:</b></h6>{{product.description}}
         </div>
-          <product-suggestions :categor="product"></product-suggestions>
-
+         <div v-if="product.category== 'electronics' ">
+           <electronics-product :products="product"></electronics-product>
+        </div>
+        <div v-if="product.category== 'jewelery' ">
+           <jewelery-product :products="product"></jewelery-product>
+        </div>
+        <div v-if="product.category==  mensCloth ">
+           <mens-clothing :products="product"></mens-clothing>
+        </div>
+        <div v-if="product.category==  womensCloth ">
+           <womens-clothing :products="product"></womens-clothing>
+        </div>
     </div>
     <!-- <product-suggestions :categor="product"></product-suggestions> -->
   </div>
 </template>
 
 <script>
-import productSuggestion from '../components/productSuggestions/productSuggestion'
+import electronicsProduct from '../components/productSuggestions/electronics/electronics'
+import jeweleryProduct from '../components/productSuggestions/jewelleries/jewelleries'
+import mensClothing from '../components/productSuggestions/mensClothing/mensClothing'
+import womensClothing from '../components/productSuggestions/womensClothing/womensClothing.vue'
 export default {
 
   components:{
-    'product-suggestions':productSuggestion
+    'electronics-product':electronicsProduct,
+    'jewelery-product':jeweleryProduct,
+    'mens-clothing':mensClothing,
+    'womens-clothing':womensClothing
   },
   props:["id"],
   computed:{
@@ -36,7 +52,8 @@ export default {
   },
   data(){
     return{
-      // categor:'Hi'
+       mensCloth:"men's clothing",
+       womensCloth:"women's clothing"
     }
   },
   mounted(){
@@ -50,6 +67,7 @@ export default {
           product:this.product,
           quantity:1
         })
+        localStorage.setItem(carts,JSON.stringify(this.$store.state.cart));
       }
     }
 }

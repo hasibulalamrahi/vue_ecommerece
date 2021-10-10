@@ -61,6 +61,8 @@ export default {
   },
   mounted(){
     this.$store.dispatch('getMensClothing');
+    // this.$store.dispatch('getProducts');
+
   }
 }
 </script>

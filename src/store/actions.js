@@ -8,7 +8,7 @@ export const getProducts=({commit}) =>{
 }
 
  export const getProduct = ({commit},productId) =>{
-     console.log(productId)
+    //  console.log(productId)
      axios.get(`https://fakestoreapi.com/products/${productId}`)
      .then(response =>{
          commit('SET_PRODUCT',response.data)
@@ -22,14 +22,56 @@ export const getProducts=({commit}) =>{
      })
  }
 
- export const addProductToCart =({commit},{product,quantity}) =>{
+ export const getElectronicsProducts=({commit}) =>{
+    axios.get('https://fakestoreapi.com/products/category/electronics?limit=4')
+    .then(response =>{
+        commit('GET_ELECTRONICS_PRODUCTS',response.data)
+    })
+}
+
+export const getJeweleryProducts=({commit}) =>{
+    axios.get('https://fakestoreapi.com/products/category/jewelery?limit=4')
+    .then(response =>{
+        commit('GET_JEWELERY_PRODUCTS',response.data)
+    })
+}
+ export const addProductToCart =({commit,dispatch},{product,quantity}) =>{
      commit('ADD_TO_CART',{product,quantity});
+    
+    dispatch('addNotification',{
+        type:'success',
+        message:'Product added to cart'
+    },{ root:true})
  }
 
- export const removeProductFromCart = ({commit},product) =>{
+ export const getCartItems = ({commit}) =>{
+    axios.get('https://fakestoreapi.com/carts')
+    .then(response =>{
+        commit('SET_CART',response.data)
+    })
+ }
+
+ export const removeProductFromCart = ({commit,dispatch},product) =>{
      commit('REMOVE_PRODUCT_FROM_CART',product);
+
+     dispatch('addNotification',{
+         type:'success',
+         message: 'Product removed from cart'
+     },{root:true});
  } 
  
- export const clearCartItems = ({commit}) =>{
+ export const clearCartItems = ({commit,dispatch}) =>{
      commit('CLEAR_CART_ITEMS');
+     dispatch('addNotification',{
+        type:'success',
+        message: 'All Products removed from cart'
+    },{root:true});
+ }
+
+ export const addNotification = ({commit},notification) =>{
+     commit('PUSH_NOTIFICATION',notification);
+ }
+
+ export const removeNotification = ({commit},notification) =>{
+     commit('REMOVE_NOTIFICATION',notification)
  }
