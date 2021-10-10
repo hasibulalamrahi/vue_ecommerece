@@ -4,6 +4,7 @@ import login from '../views/login'
 import register from '../views/register'
 import product from '../views/product'
 import categories from '../views/categories'
+import cart from '../views/cart'
 const routes = [
   {
     path: '/',
@@ -30,6 +31,13 @@ const routes = [
     path: '/product/:id',
     name: 'product',
     component:product,
+    props:true
+  },
+  
+  {
+    path: '/cart',
+    name: 'cart',
+    component:cart,
     props:true
   },
   

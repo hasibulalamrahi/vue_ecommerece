@@ -1,40 +1,11 @@
 <template>
-  <!-- <div class="dropdown-menu p-2" 
-  style="min-width:320px; right:0; left:auto" 
-  aria-labelledby="triggerId">
   <div>
-      <div class="px-2 d-flex justify-content-between">
-          <div>
-              <strong>
-                  Product title
-              </strong>
-              <br/> 1x$23
-          </div>
-          <div>
-              <a href="#" class="badge badge-secondary">remove</a>
-          </div>
-
-      </div>
-  </div>
-  <hr/>
-  <div class="d-flex justify-content-between">
-      <span>Total: $23</span>
-      <a href="#">Clear Cart</a>
-  </div>
-    
-  </div> -->
-       <div>
-            <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{cartItemCount}}  <i class="fas fa-cart-plus"></i>
-          </a>
-          <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul> -->
-            <div class="dropdown-menu p-2" @click="$event.stopPropagation()"
+       </a>
+          
+      <div class="dropdown-menu p-2" @click="$event.stopPropagation()"
                 style="min-width:320px; right:0; left:auto" 
                 aria-labelledby="triggerId">
                 <div>
@@ -56,6 +27,9 @@
                 <div class="d-flex justify-content-between">
                     <span>Total: ${{cartTotalPrice}}</span>
                     <a href="#" @click.prevent="clearCartItems()">Clear Cart</a>
+                </div> <br>
+                <div>
+                  <button type="button" class="btn btn-info" id="checkout"><router-link to="/cart" class="nav-tem nav-link active">Checkout</router-link> </button>
                 </div>
       
     </div>
@@ -65,7 +39,7 @@
 </template>
 
 <script>
-let carts = 'shopping-cart';
+const carts = 'shopping-cart';
 
 export default {
     created(){
@@ -101,5 +75,13 @@ export default {
 </script>
 
 <style>
-    
+    #checkout{
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+}
 </style>

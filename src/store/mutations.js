@@ -1,5 +1,5 @@
-import carts from '../components/nav/miniCart'
-
+// import carts from '../components/nav/miniCart'
+let carts = 'shopping-cart'
 export const SET_PRODUCTS =(state,products)=>{
     state.products = products;
     // console.log(state.products)
