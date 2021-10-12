@@ -8,16 +8,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <router-link to="/" class="nav-tem nav-link active">Home</router-link>
+          <router-link to="/" class="nav-tem nav-link active" id="headItem">Home</router-link>
       </li>
       <li class="nav-item">
-            <router-link to="/categories" class="nav-tem nav-link active">Categories</router-link>      
+            <router-link to="/categories" class="nav-tem nav-link active" id="headItem">Categories</router-link>      
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Hot Deals</a>
+        <a class="nav-link" href="#" id="headItem">Hot Deals</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Contact us</a>
+        <a class="nav-link" href="#" id="headItem">Contact us</a>
       </li>
       
     </ul>
@@ -43,5 +43,9 @@ export default {
     padding: 5px;
     text-align: center;
 
+  }
+  #headItem{
+    font-weight: bold;
+    font-size: 20px;
   }
 </style>

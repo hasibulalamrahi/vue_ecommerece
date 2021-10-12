@@ -8,6 +8,9 @@
         
 
       </div>
+      <div>
+        <exclusive-product></exclusive-product>
+      </div>
     </div>
   </div>
 </template>
@@ -15,10 +18,12 @@
 <script>
 import productCard from './productCard'
 import productOffers from './productOffers.vue'
+import exclusiveProduct from './exProduct'
 export default {
   components:{
     'product-offers':productOffers,
-    'product-card':productCard
+    'product-card':productCard,
+    'exclusive-product':exclusiveProduct
   },
   computed:{
     products(){

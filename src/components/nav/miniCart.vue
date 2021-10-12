@@ -2,7 +2,7 @@
   <div>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{cartItemCount}}  <i class="fas fa-cart-plus"></i>
+            {{cartItemCount}}  <i class="fas fa-cart-plus" id="cart"></i>
        </a>
           
       <div class="dropdown-menu p-2" @click="$event.stopPropagation()"
@@ -83,5 +83,11 @@ export default {
   margin-top: 10px;
   border: none;
   outline: none;
+}
+
+#cart{
+  color:white;
+  margin-right: 20px;
+  margin-top:15px;
 }
 </style>

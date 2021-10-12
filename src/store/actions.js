@@ -35,6 +35,21 @@ export const getJeweleryProducts=({commit}) =>{
         commit('GET_JEWELERY_PRODUCTS',response.data)
     })
 }
+
+export const addUser=(data) =>{
+    // console.log(data)
+    axios.post('https://fakestoreapi.com/users',data)
+    .then(
+        res =>{
+            console.log(res)
+        }
+    ).catch(
+        err =>{
+            console.log(err)
+        }
+    )
+}
+
  export const addProductToCart =({commit,dispatch},{product,quantity}) =>{
      commit('ADD_TO_CART',{product,quantity});
     
