@@ -12,16 +12,20 @@
           <h6 class="mt-4"><b>Detailed Description:</b></h6>{{product.description}}
         </div>
          <div v-if="product.category== 'electronics' ">
-           <electronics-product :products="product"></electronics-product>
+           <h3>Similar Product you may like from the category Electronics</h3> <hr>
+           <electronics-product ></electronics-product>
         </div>
         <div v-if="product.category== 'jewelery' ">
-           <jewelery-product :products="product"></jewelery-product>
+          <h3>Similar Product you may like from the category Jeweleey</h3> <hr>
+          <jewelery-product></jewelery-product>
         </div>
         <div v-if="product.category==  mensCloth ">
-           <mens-clothing :products="product"></mens-clothing>
+          <h3>Similar Product you may like from the category Mens Clothing</h3> <hr>
+          <mens-clothing ></mens-clothing>
         </div>
         <div v-if="product.category==  womensCloth ">
-           <womens-clothing :products="product"></womens-clothing>
+          <h3>Similar from Womens Clothing</h3><hr>
+           <womens-clothing></womens-clothing>
         </div>
     </div>
     <!-- <product-suggestions :categor="product"></product-suggestions> -->
@@ -29,17 +33,19 @@
 </template>
 
 <script>
-import electronicsProduct from '../components/productSuggestions/electronics/electronics'
-import jeweleryProduct from '../components/productSuggestions/jewelleries/jewelleries'
-import mensClothing from '../components/productSuggestions/mensClothing/mensClothing'
-import womensClothing from '../components/productSuggestions/womensClothing/womensClothing.vue'
+import mensClothing from '../components/categories/mensClothing/mensClothingCard'
+import womensClothing from '../components/categories/womensClothing/womensClothing'
+import electronicsProduct from '../components/categories/electronics/electronics'
+import jeweleryProduct from '../components/categories/jewellery/jewellery'
 export default {
 
   components:{
+    'mens-clothing':mensClothing,
+    'womens-clothing':womensClothing,
     'electronics-product':electronicsProduct,
     'jewelery-product':jeweleryProduct,
-    'mens-clothing':mensClothing,
-    'womens-clothing':womensClothing
+
+
   },
   props:["id"],
   computed:{
@@ -73,9 +79,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .w-100:hover{
     transform: scale(1.5);
     z-index: 3;
+  }
+
+  h3{
+    padding-top: 30px;
+    text-align: left;
+    font-weight: bold;
+
+    
   }
 </style>

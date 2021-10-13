@@ -32,35 +32,15 @@ export const SET_PRODUCT = (state,product ) =>{
     state.product = product;
 }
 
-export const GET_MENS_CLOTHING = (state,mensProducts) =>{
-    // console.log(mensProducts.length)
-    // console.log(mensProducts[0].category)
-    for(let i=0;i<=mensProducts.length;i++){
-        
-        if(mensProducts[i].category == "men's clothing"){
-            // console.log(mensProducts[i])
-            state.mensClothing.push(mensProducts[i])
-            // console.log(state.mensClothing)
-        }
-        else if(mensProducts[i].category =="jewelery"){
-            state.jewellery.push(mensProducts[i])
-            // console.log(state.jewellery)
+export const GET_MENS_CLOTHING = (state,products) =>{
+    state.mensClothing = products;
 
-        }
-        else if(mensProducts[i].category =="electronics"){
-            state.electronics.push(mensProducts[i])
-            // console.log(state.electronics)
-
-        }
-        else if(mensProducts[i].category =="women's clothing"){
-            state.womensClothing.push(mensProducts[i])
-            // console.log(state.womensClothing)
-
-        }
-    }
-    // console.log(state.mensClothing)
 }
-
+export const GET_WOMENS_CLOTHING =(state,products)=>{
+    state.womensClothing = products;
+    // console.log(state.electronicsProducts)
+    
+}
 export const GET_ELECTRONICS_PRODUCTS=(state,products)=>{
     state.electronicsProducts = products;
     // console.log(state.electronicsProducts)

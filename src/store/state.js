@@ -7,6 +7,6 @@ export default{
     electronics:[],
     womensClothing:[],
     electronicsProducts:[],
-    jeweleryProducts :[],
+    jeweleryProducts:[],
     notifications:[]
 }

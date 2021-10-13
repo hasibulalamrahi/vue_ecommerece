@@ -16,39 +16,48 @@ export const getProducts=({commit}) =>{
  }
 
  export const getMensClothing = ({commit}) =>{
-     axios.get('https://fakestoreapi.com/products')
+     axios.get("https://fakestoreapi.com/products/category/men's%20clothing")
      .then(response =>{
          commit('GET_MENS_CLOTHING',response.data)
      })
  }
 
+ export const getWomensClothing=({commit}) =>{
+    axios.get("https://fakestoreapi.com/products/category/women's%20clothing")
+
+    .then(response =>{
+        commit('GET_WOMENS_CLOTHING',response.data)
+    })
+}
+
  export const getElectronicsProducts=({commit}) =>{
-    axios.get('https://fakestoreapi.com/products/category/electronics?limit=4')
+    axios.get('https://fakestoreapi.com/products/category/electronics')
+
     .then(response =>{
         commit('GET_ELECTRONICS_PRODUCTS',response.data)
     })
 }
 
 export const getJeweleryProducts=({commit}) =>{
-    axios.get('https://fakestoreapi.com/products/category/jewelery?limit=4')
+    axios.get('https://fakestoreapi.com/products/category/jewelery')
     .then(response =>{
         commit('GET_JEWELERY_PRODUCTS',response.data)
     })
 }
 
-export const addUser=(data) =>{
-    // console.log(data)
-    axios.post('https://fakestoreapi.com/users',data)
-    .then(
-        res =>{
-            console.log(res)
-        }
-    ).catch(
-        err =>{
-            console.log(err)
-        }
-    )
-}
+// export const addUser=(data) =>{
+//     // console.log(data)
+//     axios.post('https://fakestoreapi.com/users',data)
+//     .then(
+//         res =>{
+//             console.log(res)
+//         }
+//     ).catch(
+//         err =>{
+//             console.log(err)
+//         }
+//     )
+// }
 
  export const addProductToCart =({commit,dispatch},{product,quantity}) =>{
      commit('ADD_TO_CART',{product,quantity});
