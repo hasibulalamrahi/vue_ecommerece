@@ -38,7 +38,7 @@ export default{
       }
     });
     this.user = response.data;
-    console.log(this.user)
+    // console.log(this.user)
   }
 }
 </script>

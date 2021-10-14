@@ -68,6 +68,15 @@ export const getJeweleryProducts=({commit}) =>{
     },{ root:true})
  }
 
+ export const deduceFromCart =({commit,dispatch},{product,quantity}) =>{
+    commit('DEDUCE_FROM_CART',{product,quantity});
+   
+   dispatch('addNotification',{
+       type:'danger',
+       message:'Quantity reduced by one'
+   },{ root:true})
+}
+
  export const getCartItems = ({commit}) =>{
     axios.get('https://fakestoreapi.com/carts')
     .then(response =>{

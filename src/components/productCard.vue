@@ -2,16 +2,22 @@
   
       <div class="col-3 mt-3 px-2">
         <div class="card h-100 text-left">
-          <img class ="product__image" :src="product.image" alt/>
+          <!-- <router-link> -->
+            
+          <img class ="product__image" @click="toProductLink(product.id)" :src="product.image" alt/>
           <div class="card-body">
             <h4 class="card-title">
               <!-- <a href="#">Product title</a> -->
               <router-link class="title" :to="{name:'product',params:{id:product.id}}">{{product.title}}</router-link>
             </h4>
-            <h6 class="price"><strong>${{product.price}}</strong></h6>
-            <p class="card_description">{{product.description}}</p> <br>
+            <h6 class="price" @click="toProductLink(product.id)"><strong>${{product.price}}</strong></h6>
+            <!-- <p class="card_description"><a href="#" class="description">{{product.description}}</a></p> <br> -->
+            <p class="card_description" @click="toProductLink(product.id)">{{product.description}}</p> <br>
+
             <p class="card-text">Rating:{{product.rating.rate}}</p>
           </div>
+          
+          <!-- </router-link> -->
           <div class="px-4 pb-3">
             <button class="btn btn-success" id="cart">Buy Now</button>
             <button class="btn btn-warning" id="cart" @click="addToCart()">Add to cart</button>
@@ -30,6 +36,10 @@ export default {
          product:this.product,
          quantity:1
       })   
+    },
+    toProductLink(id){
+      // alert(id)
+     this.$router.push(`/product/${id}`)
     }
   }
 } 
@@ -40,7 +50,8 @@ export default {
   margin-right: 1rem;
 } */
 .title{
-  font-size: 20px;
+  font-size: 15px;
+  line-height:0;
   text-decoration: none;
 }
 .product__image  {
@@ -76,7 +87,15 @@ export default {
 
 }
 
+.card_description .description{
+  text-decoration: none;
+  color:black;
+
+}
+
 .card_description{
+  text-decoration: none;
+  color:black;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

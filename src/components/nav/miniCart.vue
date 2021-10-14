@@ -29,7 +29,10 @@
                     <a href="#" @click.prevent="clearCartItems()">Clear Cart</a>
                 </div> <br>
                 <div>
-                  <button type="button" class="btn btn-info" id="checkout"><router-link to="/cart" class="nav-tem nav-link active">Checkout</router-link> </button>
+                  <button type="button" class="btn btn-info" id="checkout"><router-link to="/cart" class="nav-tem nav-link active">Edit Cart</router-link> </button>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-danger" id="checkout"><router-link to="/cart/checkout" class="nav-tem nav-link active">Checkout</router-link> </button>
                 </div>
       
     </div>
@@ -76,6 +79,7 @@ export default {
 
 <style>
     #checkout{
+  padding-bottom: 50px;
   width: 100%;
   height: 40px;
   font-size: 18px;

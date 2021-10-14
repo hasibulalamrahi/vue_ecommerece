@@ -71,6 +71,24 @@ export const ADD_TO_CART = (state,{product,quantity}) =>{
 
 }
 
+export const DEDUCE_FROM_CART = (state,{product,quantity}) =>{
+    let productInCart = state.cart.find(item=>{
+        return item.product.id === product.id;
+    })
+
+    if(productInCart){
+        productInCart.quantity -=quantity;
+        return
+    }
+    
+    state.cart.push({
+        product,
+        quantity
+    })
+    localStorage.setItem(carts,JSON.stringify(state.cart))
+
+}
+
 export const SET_CART =(state,cartItems) =>{
     state.cart = cartItems;
     console.log(state.cart)

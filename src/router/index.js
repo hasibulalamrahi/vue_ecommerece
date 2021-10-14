@@ -4,6 +4,7 @@ import login from '../views/login'
 import register from '../views/register'
 import product from '../views/product'
 import categories from '../views/categories'
+import checkOut from '../views/checkOut'
 import cart from '../views/cart'
 const routes = [
   {
@@ -35,12 +36,17 @@ const routes = [
   },
   
   {
+    path: '/cart/checkout',
+    name: 'checkout',
+    component:checkOut,
+    props:true
+  },
+  {
     path: '/cart',
     name: 'cart',
     component:cart,
     props:true
   },
-  
 
 
 ]
